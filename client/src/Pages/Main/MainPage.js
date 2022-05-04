@@ -1,7 +1,7 @@
 import './MainPage.scss';
 
 const MainPage = () => {
-	return <div className="main-page">mainPage</div>;
+	return <div>Перейти к списку трансляций</div>;
 };
 
 export default MainPage;
