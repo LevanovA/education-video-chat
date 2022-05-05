@@ -15,13 +15,13 @@ function App() {
 				<Header>
 					<Wrapper>
 						<Menu theme="dark" mode="horizontal">
-							<Menu.Item>
+							<Menu.Item key={1}>
 								<Link to={'/'}>Главная</Link>
 							</Menu.Item>
-							<Menu.Item>
+							<Menu.Item key={2}>
 								<Link to={'/translations'}>Все трансляции</Link>
 							</Menu.Item>
-							<Menu.Item>
+							<Menu.Item key={3}>
 								<Link to={'/conference/1'}>
 									Текущая трансляция
 								</Link>

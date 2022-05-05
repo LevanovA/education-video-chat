@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
       return console.warn(`Already joined to ${roomID}`);
     }
 
-    const clients = Array.from(io.sockets.adapter.room.get(roomID) || []);
+    const clients = Array.from(io.sockets.adapter.rooms.get(roomID) || []);
 
     clients.forEach((clientID) => {
       io.to(clientID).emit(ACTIOON.ADD_PEER, {

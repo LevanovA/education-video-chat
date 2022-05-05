@@ -1,6 +1,6 @@
 import './Translations.scss';
 import { Typography } from 'antd';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 } from 'uuid';
 import socket from '../../Socket';
@@ -11,15 +11,18 @@ const { Title } = Typography;
 const Translations = () => {
 	const navigate = useNavigate();
 	const [rooms, updateRooms] = useState([]);
+	const rootNode = useRef();
 
 	useEffect(() => {
 		socket.on(ACTIONS.SHARE_ROOMS, ({ rooms = [] } = {}) => {
-			updateRooms(rooms);
+			if (rootNode.current) {
+				updateRooms(rooms);
+			}
 		});
 	}, []);
 
 	return (
-		<div className="translations">
+		<div className="translations" ref={rootNode}>
 			<Title level={2}>Трансляции</Title>
 			<ul>
 				{rooms.map((roomID) => {
